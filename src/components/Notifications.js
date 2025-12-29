@@ -4,12 +4,14 @@ function Notifications() {
   const [show, setShow] = useState(false);
 
   return (
-    <section className="notificationsList">
+    <section>
       <button className="button" onClick={() => setShow(true)}>
         Refresh Notifications
       </button>
 
-      {show && <div>New Notification</div>}
+      <section className="notificationsList">
+        {show && <div>New Notification</div>}
+      </section>
     </section>
   );
 }
