@@ -1,3 +1,4 @@
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 import PostsList from "./PostsList";
@@ -6,7 +7,7 @@ import UserPosts from "./UserPosts";
 import Notifications from "./Notifications";
 import AddPostForm from "./AddPostForm";
 import EditPost from "./EditPost";
- 
+
 function App() {
   return (
     <div className="App">
