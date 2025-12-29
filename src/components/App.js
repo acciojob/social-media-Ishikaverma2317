@@ -6,7 +6,7 @@ import UserPosts from "./UserPosts";
 import Notifications from "./Notifications";
 import AddPostForm from "./AddPostForm";
 import EditPost from "./EditPost";
-
+ 
 function App() {
   return (
     <div className="App">
