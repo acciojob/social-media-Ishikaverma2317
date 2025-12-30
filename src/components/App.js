@@ -10,11 +10,10 @@ function App() {
     <div className="App">
       <h1>GenZ</h1>
 
-      <nav>
-        <a href="/">Posts</a>
-        <a href="/users">Users</a>
-        <a href="/notifications">Notifications</a>
-      </nav>
+      {/* MUST ALWAYS EXIST */}
+      <a href="/">Posts</a>
+      <a href="/users">Users</a>
+      <a href="/notifications">Notifications</a>
 
       <Switch>
         <Route exact path="/" component={PostsList} />
