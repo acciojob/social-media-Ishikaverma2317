@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import PostsList from "./PostsList";
 import Users from "./Users";
 import Notifications from "./Notifications";
@@ -16,12 +16,12 @@ function App() {
         <a href="/notifications">Notifications</a>
       </nav>
 
-      <Routes>
-        <Route path="/" element={<PostsList />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/notifications" element={<Notifications />} />
-        <Route path="/posts/:postId" element={<PostDetails />} />
-      </Routes>
+      <Switch>
+        <Route exact path="/" component={PostsList} />
+        <Route path="/users" component={Users} />
+        <Route path="/notifications" component={Notifications} />
+        <Route path="/posts/:postId" component={PostDetails} />
+      </Switch>
     </div>
   );
 }
