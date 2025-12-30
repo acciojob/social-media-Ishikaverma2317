@@ -1,26 +1,27 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./Navbar";
 import PostsList from "./PostsList";
-import UsersList from "./UsersList";
-import UserPosts from "./UserPosts";
+import Users from "./Users";
 import Notifications from "./Notifications";
-import AddPostForm from "./AddPostForm";
-import EditPost from "./EditPost";
+import PostDetails from "./PostDetails";
 
 function App() {
   return (
     <div className="App">
       <h1>GenZ</h1>
-      <Navbar />
+
+      {/* Navigation */}
+      <nav>
+        <a href="/">Posts</a>
+        <a href="/users">Users</a>
+        <a href="/notifications">Notifications</a>
+      </nav>
 
       <Routes>
         <Route path="/" element={<PostsList />} />
-        <Route path="/users" element={<UsersList />} />
-        <Route path="/users/:userId" element={<UserPosts />} />
+        <Route path="/users" element={<Users />} />
         <Route path="/notifications" element={<Notifications />} />
-        <Route path="/addPost" element={<AddPostForm />} />
-        <Route path="/posts/:postId" element={<EditPost />} />
+        <Route path="/posts/:postId" element={<PostDetails />} />
       </Routes>
     </div>
   );
