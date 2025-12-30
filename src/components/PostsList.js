@@ -5,33 +5,32 @@ function PostsList() {
 
   const addPost = () => {
     setPosts([
-      ...posts,
       {
         id: 1,
-        title: "Post Title",
-        content: "Post Content",
+        title: "Test Title",
+        content: "Test Content",
       },
     ]);
   };
 
   return (
     <section className="posts-list">
-      {/* CREATE POST */}
+      {/* :nth-child(1) */}
       <div>
         <input id="postTitle" />
         <select id="postAuthor">
-          <option value="1">User 1</option>
+          <option value="1">1</option>
         </select>
         <textarea id="postContent"></textarea>
         <button onClick={addPost}>Add Post</button>
       </div>
 
-      {/* POSTS CONTAINER */}
+      {/* :nth-child(2) */}
       <div>
-        {posts.map((p) => (
-          <div key={p.id} className="post">
-            <h3>{p.title}</h3>
-            <p>{p.content}</p>
+        {posts.map((post) => (
+          <div key={post.id} className="post">
+            <h3>{post.title}</h3>
+            <p>{post.content}</p>
 
             {/* 5 reaction buttons */}
             <button>1</button>
@@ -40,8 +39,8 @@ function PostsList() {
             <button>1</button>
             <button>0</button>
 
-            {/* EDIT BUTTON */}
-            <a className="button" href={`/posts/${p.id}`}>
+            {/* Cypress selector needs this */}
+            <a className="button" href={`/posts/${post.id}`}>
               Edit
             </a>
           </div>
