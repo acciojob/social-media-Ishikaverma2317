@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 function PostDetails() {
-  const [title, setTitle] = useState("Edited Title");
-  const [content, setContent] = useState("Edited Content");
-
   return (
     <div className="post">
-      <input id="postTitle" value={title} onChange={e=>setTitle(e.target.value)} />
-      <textarea id="postContent" value={content} onChange={e=>setContent(e.target.value)} />
+      <input id="postTitle" />
+      <textarea id="postContent"></textarea>
 
       <button className="button">Edit</button>
       <button>Save</button>
