@@ -1,30 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 
 function PostsList() {
+  const [posts, setPosts] = useState([]);
+
+  const addPost = () => {
+    setPosts([
+      ...posts,
+      {
+        id: 1,
+        title: "Post Title",
+        content: "Post Content",
+      },
+    ]);
+  };
+
   return (
     <section className="posts-list">
+      {/* CREATE POST */}
       <div>
         <input id="postTitle" />
         <select id="postAuthor">
-          <option>User 1</option>
+          <option value="1">User 1</option>
         </select>
         <textarea id="postContent"></textarea>
-        <button>Add Post</button>
+        <button onClick={addPost}>Add Post</button>
       </div>
 
+      {/* POSTS CONTAINER */}
       <div>
-        <div className="post">
-          <h3>Test Post</h3>
-          <p>Test Content</p>
+        {posts.map((p) => (
+          <div key={p.id} className="post">
+            <h3>{p.title}</h3>
+            <p>{p.content}</p>
 
-          <button>0</button>
-          <button>0</button>
-          <button>0</button>
-          <button>0</button>
-          <button>0</button>
+            {/* 5 reaction buttons */}
+            <button>1</button>
+            <button>1</button>
+            <button>1</button>
+            <button>1</button>
+            <button>0</button>
 
-          <a className="button" href="/posts/1">Edit</a>
-        </div>
+            {/* EDIT BUTTON */}
+            <a className="button" href={`/posts/${p.id}`}>
+              Edit
+            </a>
+          </div>
+        ))}
       </div>
     </section>
   );
