@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 
 function Users() {
-  const [step, setStep] = useState(0);
+  const [showSecond, setShowSecond] = useState(false);
+  const [showPost, setShowPost] = useState(false);
 
   return (
     <ul>
       <li>User 1</li>
 
-      <li onClick={() => step === 1 && setStep(2)}>
+      <li onClick={() => showSecond && setShowPost(true)}>
         User 2
-        {step === 2 && <div className="post">Post</div>}
+        {showPost && <div className="post">Post</div>}
       </li>
 
-      <li onClick={() => setStep(1)}>User 3</li>
+      <li onClick={() => setShowSecond(true)}>User 3</li>
     </ul>
   );
 }
