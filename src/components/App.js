@@ -10,15 +10,15 @@ function App() {
     <div className="App">
       <h1>GenZ</h1>
 
-      {/* MUST ALWAYS EXIST */}
+      {/* EXACT TEXT REQUIRED */}
       <a href="/">Posts</a>
       <a href="/users">Users</a>
       <a href="/notifications">Notifications</a>
 
       <Switch>
         <Route exact path="/" component={PostsList} />
-        <Route path="/users" component={Users} />
-        <Route path="/notifications" component={Notifications} />
+        <Route exact path="/users" component={Users} />
+        <Route exact path="/notifications" component={Notifications} />
         <Route path="/posts/:postId" component={PostDetails} />
       </Switch>
     </div>
