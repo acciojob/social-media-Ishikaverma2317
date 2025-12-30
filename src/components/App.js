@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <h1>GenZ</h1>
 
-      {/* Navigation */}
       <nav>
         <a href="/">Posts</a>
         <a href="/users">Users</a>
