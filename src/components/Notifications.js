@@ -10,11 +10,10 @@ function Notifications() {
       </button>
 
       <section className="notificationsList">
-        {show && <div>New Notification</div>}
+        {show && <div>Notification</div>}
       </section>
     </section>
   );
 }
 
 export default Notifications;
- 
