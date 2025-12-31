@@ -1,12 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import App from "./components/App";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import App from './App'
+import store from './app/store'
+import { Provider } from 'react-redux'
+
+import { fetchUsers } from './features/users/usersSlice'
+
+import './api/server'
+
+store.dispatch(fetchUsers())
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  document.getElementById("root")
-);
- 
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+)
