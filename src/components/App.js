@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Posts from "./Posts";
 import Users from "./Users";
 import Notifications from "./Notifications";
@@ -19,12 +19,12 @@ class App extends Component {
           <a href="/notifications">Notifications</a>
         </nav>
 
-        <Routes>
-          <Route path="/" element={<Posts />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/notifications" element={<Notifications />} />
-          <Route path="/posts/:id" element={<PostDetails />} />
-        </Routes>
+        <Switch>
+          <Route exact path="/" component={Posts} />
+          <Route path="/users" component={Users} />
+          <Route path="/notifications" component={Notifications} />
+          <Route path="/posts/:id" component={PostDetails} />
+        </Switch>
       </Router>
     );
   }
