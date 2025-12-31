@@ -1,37 +1,16 @@
-import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import ReactionButtons from './ReactionButtons';
 
-export default function Posts() {
-  const [posts, setPosts] = useState([
-    { id: 1, text: "Hello World", likes: 0 }
-  ]);
-
-  const addPost = () => {
-    setPosts([...posts, { id: Date.now(), text: "New Post", likes: 0 }]);
-  };
-
-  const likePost = (id) => {
-    setPosts(
-      posts.map(p =>
-        p.id === id ? { ...p, likes: p.likes + 1 } : p
-      )
-    );
-  };
+export default function Post({ post }) {
+  const navigate = useNavigate();
 
   return (
-    <div>
-      {/* FORM */}
-      <form>
-        <button type="button" onClick={addPost}>Add Post</button>
-      </form>
-
-      {/* POSTS */}
-      {posts.map(post => (
-        <div className="post" key={post.id}>
-          <p>{post.text}</p>
-          <button onClick={() => likePost(post.id)}>Like</button>
-          <span>{post.likes}</span>
-        </div>
-      ))}
+    <div className="post">
+      <h3>{post.title}</h3>
+      <p><b>Author:</b> {post.author}</p>
+      <p>{post.content}</p>
+      <ReactionButtons />
+      <button className="button" onClick={() => navigate(`/posts/${post.id}`)}>Edit</button>
     </div>
   );
 }
