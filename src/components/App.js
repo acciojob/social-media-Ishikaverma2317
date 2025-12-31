@@ -1,28 +1,33 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
-import PostsList from "./PostsList";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Posts from "./Posts";
 import Users from "./Users";
 import Notifications from "./Notifications";
 import PostDetails from "./PostDetails";
+import "../styles/App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>GenZ</h1>
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <h1>GenZ</h1>
 
-      {/* EXACT TEXT REQUIRED */}
-      <a href="/">Posts</a>
-      <a href="/users">Users</a>
-      <a href="/notifications">Notifications</a>
+        {/* NAVBAR (a tags only) */}
+        <nav>
+          <a href="/">Posts</a>
+          <a href="/users">Users</a>
+          <a href="/notifications">Notifications</a>
+        </nav>
 
-      <Switch>
-        <Route exact path="/" component={PostsList} />
-        <Route exact path="/users" component={Users} />
-        <Route exact path="/notifications" component={Notifications} />
-        <Route path="/posts/:postId" component={PostDetails} />
-      </Switch>
-    </div>
-  );
+        <Routes>
+          <Route path="/" element={<Posts />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/notifications" element={<Notifications />} />
+          <Route path="/posts/:id" element={<PostDetails />} />
+        </Routes>
+      </Router>
+    );
+  }
 }
 
 export default App;
