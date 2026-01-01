@@ -1,18 +1,26 @@
 import React, { useState } from "react";
 
 export default function Posts() {
-  const [posts, setPosts] = useState([
-    {
-      id: 1,
-      title: "Hello World",
-      content: "First post",
-      reactions: [0, 0, 0, 0, 0],
-    },
-  ]);
+  const [posts, setPosts] = useState([]);
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
 
-  const addReaction = (postId, index) => {
-    if (index === 4) return; // last button no change
+  const addPost = (e) => {
+    e.preventDefault();
+    setPosts([
+      ...posts,
+      {
+        id: Date.now(),
+        title,
+        body,
+        reactions: [0, 0, 0, 0],
+      },
+    ]);
+    setTitle("");
+    setBody("");
+  };
 
+  const react = (postId, index) => {
     setPosts(
       posts.map((p) =>
         p.id === postId
@@ -29,23 +37,32 @@ export default function Posts() {
 
   return (
     <div className="posts-list">
-      <div>Create Post Section</div>
+      {/* CREATE POST */}
+      <form onSubmit={addPost}>
+        <input
+          id="postTitle"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <textarea
+          id="postBody"
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+        />
+        <button type="submit">Add Post</button>
+      </form>
 
+      {/* POSTS */}
       {posts.map((post) => (
         <div key={post.id}>
           <h3>{post.title}</h3>
-          <p>{post.content}</p>
+          <p>{post.body}</p>
 
-          <div>
-            {post.reactions.map((count, i) => (
-              <button
-                key={i}
-                onClick={() => addReaction(post.id, i)}
-              >
-                {count}
-              </button>
-            ))}
-          </div>
+          {post.reactions.map((count, i) => (
+            <button key={i} onClick={() => react(post.id, i)}>
+              {count}
+            </button>
+          ))}
 
           <button className="button">Edit</button>
         </div>
