@@ -9,17 +9,17 @@ import Notifications from "./Notifications";
 export default function App() {
   return (
     <BrowserRouter>
-      <h1>GenZ</h1>
-      <div className="App">
-        <Navbar />
+  <h1>GenZ</h1>
+  <div className="App">
+    <Navbar />
 
-        <Routes>
-          <Route path="/" element={<PostsList />} />
-          <Route path="/posts/:postId" element={<PostDetail />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/notifications" element={<Notifications />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={PostsList} />
+      <Route path="/posts/:postId" component={PostDetail} />
+      <Route path="/users" component={Users} />
+      <Route path="/notifications" component={Notifications} />
+    </Switch>
+  </div>
+</BrowserRouter>
   );
 }
