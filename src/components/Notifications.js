@@ -4,14 +4,14 @@ export default function Notifications() {
   const [show, setShow] = useState(false);
 
   return (
-    <>
+    <div>
       <button className="button" onClick={() => setShow(true)}>
         Refresh Notifications
       </button>
 
       <section className="notificationsList">
-        {show && <div>New notification</div>}
+        {show && <div>New Notification</div>}
       </section>
-    </>
+    </div>
   );
 }
