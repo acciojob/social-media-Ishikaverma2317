@@ -1,6 +1,7 @@
 // App.js
 import React, { useState } from "react";
-import "./styles/App.css"; 
+import "../styles/App.css";
+ 
 
 const initialPosts = [
   {
