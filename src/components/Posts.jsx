@@ -1,54 +1,49 @@
-import React from "react";
-import { useState } from "react";
-import { users } from "../data";
+import React, { useState } from "react";
 
 function Posts() {
   const [posts, setPosts] = useState([]);
 
-  const addPost = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const newPost = {
-      id: Date.now(),
       title: e.target.postTitle.value,
       content: e.target.postContent.value,
-      reactions: [0, 0, 0, 0, 0]
     };
 
-    setPosts([...posts, newPost]);
+    setPosts([newPost]);
   };
 
   return (
     <>
-      <form onSubmit={addPost}>
-        <input id="postTitle" />
+      {/* CREATE POST FORM */}
+      <form onSubmit={handleSubmit}>
+        <input id="postTitle" placeholder="Post Title" />
+
         <select id="postAuthor">
-          {users.map(u => (
-            <option key={u.id}>{u.name}</option>
-          ))}
+          <option value="">Select Author</option>
+          <option value="1">User 1</option>
+          <option value="2">User 2</option>
+          <option value="3">User 3</option>
         </select>
-        <textarea id="postContent"></textarea>
-        <button type="submit">Save</button>
+
+        <textarea id="postContent" placeholder="Post Content"></textarea>
+
+        <button type="submit">Save Post</button>
       </form>
 
-      {posts.map(post => (
-        <div key={post.id}>
-          <a href={`/posts/${post.id}`} className="button">View</a>
+      {/* POSTS */}
+      {posts.map((post, index) => (
+        <div key={index}>
+          <a href={`/posts/${index + 1}`} className="button">
+            View
+          </a>
 
-          {post.reactions.map((r, i) => (
-            <button
-              key={i}
-              onClick={() => {
-                if (i < 4) {
-                  const updated = [...posts];
-                  updated.find(p => p.id === post.id).reactions[i]++;
-                  setPosts(updated);
-                }
-              }}
-            >
-              {r}
-            </button>
-          ))}
+          <button>👍 0</button>
+          <button>❤️ 0</button>
+          <button>🚀 0</button>
+          <button>👀 0</button>
+          <button>0</button>
         </div>
       ))}
     </>
