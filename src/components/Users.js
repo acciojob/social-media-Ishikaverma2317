@@ -1,4 +1,5 @@
-function Users() {
+import React from "react";
+ function Users() {
   return (
     <ul>
       <li>User 1</li>
