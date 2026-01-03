@@ -1,20 +1,39 @@
-import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { posts } from "../data";
+import { useState } from "react";
 
-export default function PostDetail() {
+function PostDetail() {
   const { postId } = useParams();
-  const post = posts.find(p => p.id === postId);
-
-  const [title, setTitle] = useState(post.title);
-  const [content, setContent] = useState(post.content);
+  const [edit, setEdit] = useState(false);
+  const [title, setTitle] = useState("Post Title");
+  const [content, setContent] = useState("Post Content");
 
   return (
     <div className="post">
-      <input id="postTitle" value={title} onChange={e => setTitle(e.target.value)} />
-      <textarea id="postContent" value={content} onChange={e => setContent(e.target.value)} />
-      <button className="button">Edit</button>
-      <button>Save</button>
+      {edit ? (
+        <>
+          <input
+            id="postTitle"
+            value={title}
+            onChange={e => setTitle(e.target.value)}
+          />
+          <textarea
+            id="postContent"
+            value={content}
+            onChange={e => setContent(e.target.value)}
+          />
+          <button onClick={() => setEdit(false)}>Save</button>
+        </>
+      ) : (
+        <>
+          <h2>{title}</h2>
+          <p>{content}</p>
+          <button className="button" onClick={() => setEdit(true)}>
+            Edit
+          </button>
+        </>
+      )}
     </div>
   );
 }
+
+export default PostDetail;
