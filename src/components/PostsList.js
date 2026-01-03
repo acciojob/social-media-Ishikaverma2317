@@ -3,10 +3,19 @@ import Posts from "./Posts";
 
 function PostsList() {
   return (
-    <section className="posts-list">
-      <div></div> {/* nth-child(1) empty */}
-      <Posts />    {/* nth-child(2) */}
-    </section>
+ <section class="posts-list">
+  <h2>Posts</h2>        ← first child
+  <div>                ← second child
+    <article>          ← post
+      <a class="button">View</a>
+      <button>👍</button>
+      <button>❤️</button>
+      <button>🚀</button>
+      <button>👀</button>
+    </article>
+  </div>
+</section>
+
   );
 }
 
