@@ -1,26 +1,24 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Posts from "./Posts";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./Navbar";
+import PostsList from "./PostsList";
 import Users from "./Users";
 import Notifications from "./Notifications";
-import "../styles/App.css";
+import PostDetail from "./PostDetail";
 
-export default function App() {
+function App() {
   return (
-    <Router>
-      <h1>GenZ</h1>
-
-      <nav>
-        <a href="/">Posts</a>
-        <a href="/users">Users</a>
-        <a href="/notifications">Notifications</a>
-      </nav>
+    <div className="App">
+      <h1>GenZ</h1> {/* REQUIRED */}
+      <Navbar />
 
       <Routes>
-        <Route path="/" element={<Posts />} />
+        <Route path="/" element={<PostsList />} />
         <Route path="/users" element={<Users />} />
         <Route path="/notifications" element={<Notifications />} />
+        <Route path="/posts/:postId" element={<PostDetail />} />
       </Routes>
-    </Router>
+    </div>
   );
 }
+
+export default App;
