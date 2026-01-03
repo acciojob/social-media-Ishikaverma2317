@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-export default function Notifications() {
+function Notifications() {
   const [show, setShow] = useState(false);
 
   return (
-    <div>
+    <>
       <button className="button" onClick={() => setShow(true)}>
         Refresh Notifications
       </button>
@@ -12,6 +12,8 @@ export default function Notifications() {
       <section className="notificationsList">
         {show && <div>New Notification</div>}
       </section>
-    </div>
+    </>
   );
 }
+
+export default Notifications;
