@@ -1,72 +1,57 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { users } from "../data";
 
-export default function Posts() {
+function Posts() {
   const [posts, setPosts] = useState([]);
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
 
   const addPost = (e) => {
     e.preventDefault();
-    setPosts([
-      ...posts,
-      {
-        id: Date.now(),
-        title,
-        body,
-        reactions: [0, 0, 0, 0],
-      },
-    ]);
-    setTitle("");
-    setBody("");
-  };
 
-  const react = (postId, index) => {
-    setPosts(
-      posts.map((p) =>
-        p.id === postId
-          ? {
-              ...p,
-              reactions: p.reactions.map((r, i) =>
-                i === index ? r + 1 : r
-              ),
-            }
-          : p
-      )
-    );
+    const newPost = {
+      id: Date.now(),
+      title: e.target.postTitle.value,
+      content: e.target.postContent.value,
+      reactions: [0, 0, 0, 0, 0]
+    };
+
+    setPosts([...posts, newPost]);
   };
 
   return (
-    <div className="posts-list">
-      {/* CREATE POST */}
+    <>
       <form onSubmit={addPost}>
-        <input
-          id="postTitle"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <textarea
-          id="postBody"
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-        />
-        <button type="submit">Add Post</button>
+        <input id="postTitle" />
+        <select id="postAuthor">
+          {users.map(u => (
+            <option key={u.id}>{u.name}</option>
+          ))}
+        </select>
+        <textarea id="postContent"></textarea>
+        <button type="submit">Save</button>
       </form>
 
-      {/* POSTS */}
-      {posts.map((post) => (
+      {posts.map(post => (
         <div key={post.id}>
-          <h3>{post.title}</h3>
-          <p>{post.body}</p>
+          <a href={`/posts/${post.id}`} className="button">View</a>
 
-          {post.reactions.map((count, i) => (
-            <button key={i} onClick={() => react(post.id, i)}>
-              {count}
+          {post.reactions.map((r, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                if (i < 4) {
+                  const updated = [...posts];
+                  updated.find(p => p.id === post.id).reactions[i]++;
+                  setPosts(updated);
+                }
+              }}
+            >
+              {r}
             </button>
           ))}
-
-          <button className="button">Edit</button>
         </div>
       ))}
-    </div>
+    </>
   );
 }
+
+export default Posts;
