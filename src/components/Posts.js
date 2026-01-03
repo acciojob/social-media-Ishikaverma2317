@@ -1,17 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 function Posts() {
-  const [showPost, setShowPost] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setShowPost(true);
-  };
-
   return (
     <>
       {/* 1st child */}
-      <form onSubmit={handleSubmit}>
+      <form>
         <input id="postTitle" />
         <select id="postAuthor">
           <option>User 1</option>
@@ -28,20 +21,19 @@ function Posts() {
       {/* 3rd child */}
       <div></div>
 
-      {/* 4th child (IMPORTANT) */}
-      {showPost && (
-        <div>
-          <a href="/posts/1" className="button">
-            View
-          </a>
+      {/* 4th child */}
+      <div>
+        {/* DIRECT CHILD */}
+        <a href="/posts/1" className="button">
+          View
+        </a>
 
-          <button>👍</button>
-          <button>❤️</button>
-          <button>🚀</button>
-          <button>👀</button>
-          <button>0</button>
-        </div>
-      )}
+        <button>👍</button>
+        <button>❤️</button>
+        <button>🚀</button>
+        <button>👀</button>
+        <button>0</button>
+      </div>
     </>
   );
 }
