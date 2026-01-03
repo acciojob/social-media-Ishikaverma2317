@@ -1,6 +1,4 @@
-import React from "react";
-
-export default function Users() {
+function Users() {
   return (
     <ul>
       <li>User 1</li>
@@ -9,3 +7,5 @@ export default function Users() {
     </ul>
   );
 }
+
+export default Users;
