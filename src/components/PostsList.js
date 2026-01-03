@@ -6,7 +6,6 @@ function PostsList() {
     <section className="posts-list">
       <h2>Posts</h2>
 
-      {/* SECOND CHILD */}
       <div>
         <Posts />
       </div>
@@ -15,4 +14,3 @@ function PostsList() {
 }
 
 export default PostsList;
- 
