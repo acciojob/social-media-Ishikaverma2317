@@ -1,6 +1,4 @@
-import React from "react";
-
-export default function Navbar() {
+function Navbar() {
   return (
     <nav>
       <a href="/">Posts</a>
@@ -9,3 +7,5 @@ export default function Navbar() {
     </nav>
   );
 }
+
+export default Navbar;
