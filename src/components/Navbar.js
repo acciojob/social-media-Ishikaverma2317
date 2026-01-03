@@ -1,4 +1,5 @@
-function Navbar() {
+import React from "react";
+ function Navbar() {
   return (
     <nav>
       <a href="/">Posts</a>
