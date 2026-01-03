@@ -1,9 +1,11 @@
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 import PostsList from "./PostsList";
 import Users from "./Users";
 import Notifications from "./Notifications";
 import PostDetail from "./PostDetail";
+
 
 function App() {
   return (
