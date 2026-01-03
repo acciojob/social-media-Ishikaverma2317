@@ -1,10 +1,17 @@
 import React from "react";
- function Users() {
+
+function Users() {
   return (
     <ul>
-      <li>User 1</li>
-      <li>User 2</li>
-      <li>User 3</li>
+      <li>
+        <a href="/users/1">User 1</a>
+      </li>
+      <li>
+        <a href="/users/2">User 2</a>
+      </li>
+      <li>
+        <a href="/users/3">User 3</a>
+      </li>
     </ul>
   );
 }
