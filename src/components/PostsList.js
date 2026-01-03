@@ -1,21 +1,26 @@
 import React from "react";
-import Posts from "./Posts";
 
 function PostsList() {
   return (
- <section class="posts-list">
-  <h2>Posts</h2>        ← first child
-  <div>                ← second child
-    <article>          ← post
-      <a class="button">View</a>
-      <button>👍</button>
-      <button>❤️</button>
-      <button>🚀</button>
-      <button>👀</button>
-    </article>
-  </div>
-</section>
+    <section className="posts-list">
+      {/* FIRST CHILD */}
+      <h2>Posts</h2>
 
+      {/* SECOND CHILD */}
+      <div>
+        <article>
+          <a href="/posts/1" className="button">
+            View
+          </a>
+
+          <button>👍</button>
+          <button>❤️</button>
+          <button>🚀</button>
+          <button>👀</button>
+          <button>0</button>
+        </article>
+      </div>
+    </section>
   );
 }
 
