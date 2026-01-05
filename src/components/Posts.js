@@ -3,7 +3,7 @@ import React from "react";
 function Posts() {
   return (
     <>
-      {/* 1st child */}
+      {/* 1st child – Add Post Form */}
       <form>
         <input id="postTitle" />
         <select id="postAuthor">
@@ -15,24 +15,19 @@ function Posts() {
         <button type="submit">Save Post</button>
       </form>
 
-      {/* 2nd child */}
-      <div></div>
+      {/* 2nd child – POSTS LIST (IMPORTANT) */}
+      <div className="posts-list">
+        <div className="post">
+          <a href="/posts/1" className="button">
+            View
+          </a>
 
-      {/* 3rd child */}
-      <div></div>
-
-      {/* 4th child */}
-      <div>
-        {/* DIRECT CHILD */}
-        <a href="/posts/1" className="button">
-          View
-        </a>
-
-        <button>👍</button>
-        <button>❤️</button>
-        <button>🚀</button>
-        <button>👀</button>
-        <button>0</button>
+          <button>👍</button>
+          <button>❤️</button>
+          <button>🚀</button>
+          <button>👀</button>
+          <button>0</button>
+        </div>
       </div>
     </>
   );
