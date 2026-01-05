@@ -15,7 +15,7 @@ function Posts() {
         <button type="submit">Save Post</button>
       </form>
 
-      {/* 2nd child – POSTS LIST (IMPORTANT) */}
+      {/* 2nd child – POSTS LIST (VERY IMPORTANT) */}
       <div className="posts-list">
         <div className="post">
           <a href="/posts/1" className="button">
