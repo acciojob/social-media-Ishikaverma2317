@@ -1,13 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function Navbar() {
+export default function Navbar() {
   return (
     <nav>
-      <a href="/">Posts</a>
-      <a href="/users">Users</a>
-      <a href="/notifications">Notifications</a>
+      <Link to="/">Posts</Link> |<Link to="/users">Users</Link> |
+      <Link to="/notifications">Notifications</Link>
     </nav>
   );
 }
-
-export default Navbar;

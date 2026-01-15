@@ -1,16 +1,15 @@
 import React from "react";
-import Posts from "./Posts";
+import { useSelector } from "react-redux";
+import PostItem from "./PostItem";
 
-function PostsList() {
+export default function PostsList() {
+  const posts = useSelector((state) => state.posts);
+
   return (
-    <section className="posts-list">
-      <h2>Posts</h2>
-
-      <div>
-        <Posts />
-      </div>
-    </section>
+    <div className="posts-list">
+      {posts.map((post) => (
+        <PostItem key={post.id} post={post} />
+      ))}
+    </div>
   );
 }
-
-export default PostsList;
